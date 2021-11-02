@@ -7,13 +7,11 @@ RUN apt update\
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-
-
 # Install dependencies:
 COPY requirements.txt .
-RUN pip install -r requirements.txt
 RUN pip install --upgrade setuptools
 RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 RUN pip install prophet
 
 RUN mkdir -p /home/user
